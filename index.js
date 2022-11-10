@@ -1,10 +1,17 @@
-import  Express  from "express";
+import  express  from "express";
+const app = express();
 import userRoutes from "./routes/users.js";
 import postsRoutes from "./routes/posts.js";
 import likesRoutes from "./routes/likes.js";
 import commentsRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
-const app = Express();
+import cors from "cors";
+import cookieParser from "cookie-parser";
+
+//middleware
+app.use(express.json());
+app.use(cors());
+app.use(cookieParser());
 
 app.use("/users", userRoutes);
 app.use("/posts", postsRoutes);
