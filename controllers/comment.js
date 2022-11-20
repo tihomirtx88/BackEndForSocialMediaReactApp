@@ -36,7 +36,7 @@ export const addComments = (req, res) => {
 };
 
 export const deleteComment = (req, res) => {
-  const token = req.cookies.access_token;
+  const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not authenticated!");
 
   jwt.verify(token, "secretKey", (err, userInfo) => {
