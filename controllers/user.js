@@ -1,6 +1,19 @@
 import { db } from "../connect.js";
 import jwt from "jsonwebtoken";
 
+export const getUsers = (req, res) => {
+
+    const token = req.cookies.accessToken;
+    if (!token) return res.status(401).json("Not logged in!");
+
+    const q = "SELECT * FROM users";
+
+    db.query(q, (err, data) => {
+        if(err) return res.status(500).json(err);
+        return res.json(data);
+    })
+}
+
 export const getUser = (req,res) => {
     const userId = req.params.userId;
     const q = "SELECT * FROM users WHERE id=?";
