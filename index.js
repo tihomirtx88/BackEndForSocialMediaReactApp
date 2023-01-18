@@ -1,5 +1,5 @@
 import  express  from "express";
-const app = express();
+
 import userRoutes from "./routes/users.js";
 import postsRoutes from "./routes/posts.js";
 import likesRoutes from "./routes/likes.js";
@@ -7,9 +7,12 @@ import commentsRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
 import relationshipsRoutes from "./routes/relationships.js";
 import storiesRoutes from "./routes/stories.js";
+
 import cors from "cors";
 import multer from "multer";
 import cookieParser from "cookie-parser";
+
+const app = express();
 
 //middlewares
 app.use((req, res, next) => {
